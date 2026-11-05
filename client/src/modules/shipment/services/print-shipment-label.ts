@@ -14,8 +14,9 @@ import {
 import { PrintShipmentLabelDTO } from "../dto/write/print-shipment-label";
 
 // POST /shipments/:id/label
-// Declares its own variant of too-many-requests, so it must NOT spread
-// COMMON_HTTP_EXCEPTIONS: the generic sentence would come first and win.
+// Declares its own variant of too-many-requests, so it must not spread
+// COMMON_HTTP_EXCEPTIONS ahead of it: `find` returns the first match, and the
+// generic sentence would win.
 class PrintLabelExceptionResolver extends AppHttpExceptionResolver {
   protected errors(): AppHttpException[] {
     return [

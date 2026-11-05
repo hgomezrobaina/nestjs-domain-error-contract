@@ -67,7 +67,7 @@ server/src/modules/
 ├── app/
 │   ├── domain/exception/
 │   │   ├── app-http.exception.ts            # the contract
-│   │   └── app-error-response.exception.ts  # the last-resort error
+│   │   └── app-error-response.exception.ts  # the shape of the error in the body
 │   └── infrastructure/nest/
 │       ├── filters/http-error.filter.ts          # the global filter
 │       └── module/app.module.ts                  # the two limits
@@ -98,7 +98,7 @@ Since version 12, `HttpException` accepts an `errorCode` and serialises it in th
 ## Deliberate trade-offs
 
 - **The two catalogues are written by hand and nothing checks one against the other.** A new server code that deserved its own sentence degrades silently to the operation's `default()`. The fixtures pin the _shape_ of the contract, not the catalogues.
-- **A catalogue can hide its own entry.** `find` returns the first match, so the print-label catalogue declares its own `too-many-requests` and must not also spread `COMMON_HTTP_EXCEPTIONS`, or the generic sentence wins.
+- **A catalogue can hide its own entry.** `find` returns the first match, so the print-label catalogue declares its own `too-many-requests` and must not spread `COMMON_HTTP_EXCEPTIONS` ahead of it, or the generic sentence wins.
 - **A resolved error is the catalogue entry itself.** The mirror receives its params through `setParams` after recognising, and the resolver returns that same instance to the UI, so it reads the params of the last failure it resolved. That is why every catalogue builds its entries with `new` on each resolution; the shared sets that are spread (`COMMON_HTTP_EXCEPTIONS`, `CARRIER_HTTP_EXCEPTIONS`) only hold entries without params.
 - **The client needs updating to know a new code.** Until it is, the code falls back to the operation's default. The server `message` stays in the contract as the next fallback for clients that choose to paint it.
 

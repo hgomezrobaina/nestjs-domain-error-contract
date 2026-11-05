@@ -6,10 +6,7 @@ import {
   HttpStatus,
 } from "@nestjs/common";
 import { AppHttpException } from "../../../domain/exception/app-http.exception";
-import {
-  AppErrorResponse,
-  unexpectedErrorResponse,
-} from "../../../domain/exception/app-error-response.exception";
+import { AppErrorResponse } from "../../../domain/exception/app-error-response.exception";
 import { PinoLogger } from "../logger/pino-logger";
 
 @Catch()
@@ -49,7 +46,12 @@ export class AppExceptionFilter implements ExceptionFilter {
       return this.fromHttpException(exception);
     }
 
-    return unexpectedErrorResponse();
+    return {
+      message: "There was an unexpected server error",
+      status: HttpStatus.INTERNAL_SERVER_ERROR,
+      code: "internal-server-error",
+      params: [],
+    };
   }
 
   // Framework exceptions (a guard, a missing route) carry no domain code,

@@ -6,7 +6,8 @@ import { AppHttpException } from "./app-http-exception";
 // explain, default() is the sentence for everything else.
 //
 // `find` returns the first match, so a catalogue that declares its own variant of
-// a code must not also spread the common set that contains the generic one.
+// a code must not spread the common set that contains the generic one ahead of
+// its variant.
 export abstract class AppHttpExceptionResolver {
   protected abstract errors(): AppHttpException[];
   protected abstract default(): AppError;
