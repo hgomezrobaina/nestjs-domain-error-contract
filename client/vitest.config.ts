@@ -1,9 +1,14 @@
-import path from "node:path"
-import { defineConfig } from "vitest/config"
+import path from "node:path";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
-    alias: [{ find: "@modules", replacement: path.resolve(import.meta.dirname, "src/modules") }],
+    alias: [
+      {
+        find: "@modules",
+        replacement: path.resolve(import.meta.dirname, "src/modules"),
+      },
+    ],
   },
   test: {
     environment: "node",
@@ -11,4 +16,4 @@ export default defineConfig({
     watch: false,
     passWithNoTests: false,
   },
-})
+});

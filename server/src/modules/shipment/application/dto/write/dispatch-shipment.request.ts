@@ -1,4 +1,4 @@
 export class DispatchShipmentRequest {
-  shipmentId: string
-  carrierId: string
+  shipmentId: string;
+  carrierId: string;
 }

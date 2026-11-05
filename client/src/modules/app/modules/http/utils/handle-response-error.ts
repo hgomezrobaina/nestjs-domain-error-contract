@@ -1,12 +1,13 @@
-import axios from "axios"
-import { DispatchHttpError, unknownError } from "../domain/http-error"
+import axios from "axios";
+import { AppHttpError, unknownError } from "../domain/http-error";
 
-export function handleResponseError(error: unknown): DispatchHttpError {
+export function handleResponseError(error: unknown): AppHttpError {
   if (!axios.isAxiosError(error)) {
-    return unknownError()
+    return unknownError();
   }
 
-  const payload = (error.response?.data as { error?: Partial<DispatchHttpError> })?.error
+  const payload = (error.response?.data as { error?: Partial<AppHttpError> })
+    ?.error;
 
   // The server message is kept even though this client never paints it:
   // it is the fallback for a code the client does not know yet.
@@ -15,5 +16,5 @@ export function handleResponseError(error: unknown): DispatchHttpError {
     status: error.response?.status ?? 500,
     code: payload?.code ?? "",
     params: Array.isArray(payload?.params) ? payload.params : [],
-  }
+  };
 }

@@ -1,12 +1,12 @@
-import { Module } from "@nestjs/common"
-import { APP_FILTER, APP_GUARD } from "@nestjs/core"
-import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler"
-import { ShipmentModule } from "../../../../shipment/infrastructure/nest/module/shipment.module"
-import { DispatchExceptionFilter } from "../filters/http-error.filter"
-import { PinoLogger } from "../logger/pino-logger"
+import { Module } from "@nestjs/common";
+import { APP_FILTER, APP_GUARD } from "@nestjs/core";
+import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
+import { ShipmentModule } from "../../../../shipment/infrastructure/nest/module/shipment.module";
+import { AppExceptionFilter } from "../filters/http-error.filter";
+import { PinoLogger } from "../logger/pino-logger";
 
-const MINUTE = 60_000
-const HOUR = 60 * MINUTE
+const MINUTE = 60_000;
+const HOUR = 60 * MINUTE;
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ const HOUR = 60 * MINUTE
   providers: [
     PinoLogger,
     { provide: APP_GUARD, useClass: ThrottlerGuard },
-    { provide: APP_FILTER, useClass: DispatchExceptionFilter },
+    { provide: APP_FILTER, useClass: AppExceptionFilter },
   ],
 })
 export class AppModule {}

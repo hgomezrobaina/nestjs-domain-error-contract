@@ -1,4 +1,4 @@
 export interface PrintShipmentLabelDTO {
-  shipmentId: string
-  carrierId: string
+  shipmentId: string;
+  carrierId: string;
 }

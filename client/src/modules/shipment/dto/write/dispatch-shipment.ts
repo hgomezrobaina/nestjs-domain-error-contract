@@ -1,4 +1,4 @@
 export interface DispatchShipmentDTO {
-  shipmentId: string
-  carrierId: string
+  shipmentId: string;
+  carrierId: string;
 }

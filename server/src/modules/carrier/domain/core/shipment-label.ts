@@ -1,4 +1,4 @@
 export interface ShipmentLabel {
-  trackingNumber: string
-  carrierId: string
+  trackingNumber: string;
+  carrierId: string;
 }

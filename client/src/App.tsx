@@ -1,6 +1,6 @@
-import LanguageSwitch from "@modules/app/modules/language/components/LanguageSwitch/LanguageSwitch"
-import ShipmentDesk from "@modules/shipment/components/ShipmentDesk/ShipmentDesk"
-import { Toaster } from "react-hot-toast"
+import LanguageSwitch from "@modules/app/modules/language/components/LanguageSwitch/LanguageSwitch";
+import ShipmentDesk from "@modules/shipment/components/ShipmentDesk/ShipmentDesk";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
@@ -14,5 +14,5 @@ export default function App() {
 
       <Toaster />
     </main>
-  )
+  );
 }

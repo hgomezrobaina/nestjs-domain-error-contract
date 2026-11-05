@@ -1,83 +1,83 @@
-import { HttpStatus } from "@nestjs/common"
+import { HttpStatus } from "@nestjs/common";
 import {
-  DispatchHttpErrorParam,
-  DispatchHttpException,
-} from "../../../app/domain/exception/dispatch-http.exception"
+  AppHttpErrorParam,
+  AppHttpException,
+} from "../../../app/domain/exception/app-http.exception";
 
-export class ShipmentNotFoundException extends DispatchHttpException {
+export class ShipmentNotFoundException extends AppHttpException {
   status(): HttpStatus {
-    return HttpStatus.NOT_FOUND
+    return HttpStatus.NOT_FOUND;
   }
 
   code(): string {
-    return "shipment-not-found"
+    return "shipment-not-found";
   }
 
   content(): string {
-    return "The shipment does not exist"
+    return "The shipment does not exist";
   }
 }
 
-export class ShipmentAlreadyDispatchedException extends DispatchHttpException {
+export class ShipmentAlreadyDispatchedException extends AppHttpException {
   status(): HttpStatus {
-    return HttpStatus.CONFLICT
+    return HttpStatus.CONFLICT;
   }
 
   code(): string {
-    return "shipment-already-dispatched"
+    return "shipment-already-dispatched";
   }
 
   content(): string {
-    return "The shipment was already dispatched"
+    return "The shipment was already dispatched";
   }
 }
 
-export class ShipmentWeightExceededException extends DispatchHttpException {
+export class ShipmentWeightExceededException extends AppHttpException {
   constructor(
     private readonly maxWeight: number,
     private readonly actual: number,
   ) {
-    super()
+    super();
   }
 
   status(): HttpStatus {
-    return HttpStatus.CONFLICT
+    return HttpStatus.CONFLICT;
   }
 
   code(): string {
-    return "shipment-weight-exceeded"
+    return "shipment-weight-exceeded";
   }
 
   content(): string {
-    return "The shipment weight exceeds what the carrier accepts"
+    return "The shipment weight exceeds what the carrier accepts";
   }
 
-  params(): DispatchHttpErrorParam[] {
+  params(): AppHttpErrorParam[] {
     return [
       { name: "maxWeight", value: String(this.maxWeight) },
       { name: "actual", value: String(this.actual) },
-    ]
+    ];
   }
 }
 
-export class DestinationNotCoveredException extends DispatchHttpException {
+export class DestinationNotCoveredException extends AppHttpException {
   constructor(private readonly country: string) {
-    super()
+    super();
   }
 
   status(): HttpStatus {
-    return HttpStatus.UNPROCESSABLE_ENTITY
+    return HttpStatus.UNPROCESSABLE_ENTITY;
   }
 
   code(): string {
-    return "destination-not-covered"
+    return "destination-not-covered";
   }
 
   content(): string {
-    return "The carrier does not deliver to the shipment destination"
+    return "The carrier does not deliver to the shipment destination";
   }
 
-  params(): DispatchHttpErrorParam[] {
-    return [{ name: "country", value: this.country }]
+  params(): AppHttpErrorParam[] {
+    return [{ name: "country", value: this.country }];
   }
 }

@@ -7,10 +7,10 @@ export class Shipment {
   ) {}
 
   get dispatchedAt(): Date | null {
-    return this._dispatchedAt
+    return this._dispatchedAt;
   }
 
   dispatch(at: Date): void {
-    this._dispatchedAt = at
+    this._dispatchedAt = at;
   }
 }

@@ -1,3 +1,3 @@
 export class PrintShipmentLabelRequest {
-  carrierId: string
+  carrierId: string;
 }

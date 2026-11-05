@@ -1,16 +1,20 @@
-import { CARRIERS, SHIPMENTS } from "../../constants/desk"
-import DispatchButton from "../DispatchButton/DispatchButton"
-import PrintLabelButton from "../PrintLabelButton/PrintLabelButton"
-import useShipmentDesk from "./hooks/useShipmentDesk"
+import { CARRIERS, SHIPMENTS } from "../../constants/desk";
+import DispatchButton from "../DispatchButton/DispatchButton";
+import PrintLabelButton from "../PrintLabelButton/PrintLabelButton";
+import useShipmentDesk from "./hooks/useShipmentDesk";
 
 export default function ShipmentDesk() {
-  const { shipmentId, carrierId, setShipmentId, setCarrierId } = useShipmentDesk()
+  const { shipmentId, carrierId, setShipmentId, setCarrierId } =
+    useShipmentDesk();
 
   return (
     <section className="desk">
       <label>
         Shipment
-        <select value={shipmentId} onChange={(e) => setShipmentId(e.target.value)}>
+        <select
+          value={shipmentId}
+          onChange={(e) => setShipmentId(e.target.value)}
+        >
           {SHIPMENTS.map((s) => (
             <option key={s.id} value={s.id}>
               {s.label}
@@ -21,7 +25,10 @@ export default function ShipmentDesk() {
 
       <label>
         Carrier
-        <select value={carrierId} onChange={(e) => setCarrierId(e.target.value)}>
+        <select
+          value={carrierId}
+          onChange={(e) => setCarrierId(e.target.value)}
+        >
           {CARRIERS.map((c) => (
             <option key={c.id} value={c.id}>
               {c.label}
@@ -35,5 +42,5 @@ export default function ShipmentDesk() {
         <PrintLabelButton shipmentId={shipmentId} carrierId={carrierId} />
       </div>
     </section>
-  )
+  );
 }

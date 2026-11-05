@@ -6,6 +6,6 @@ export class Carrier {
   ) {}
 
   covers(country: string): boolean {
-    return this.countries.includes(country)
+    return this.countries.includes(country);
   }
 }
