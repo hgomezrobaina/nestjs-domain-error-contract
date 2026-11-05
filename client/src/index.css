@@ -1,0 +1,41 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #1c1c1e;
+  background: #f6f6f4;
+}
+
+main {
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.desk {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.desk label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.desk select,
+button {
+  font: inherit;
+  padding: 8px 12px;
+}
+
+.actions,
+.language-switch {
+  display: flex;
+  gap: 8px;
+}

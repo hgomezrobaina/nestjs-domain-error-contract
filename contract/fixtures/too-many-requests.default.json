@@ -1,0 +1,13 @@
+{
+  "status": 429,
+  "body": {
+    "path": "/shipments/dispatch",
+    "status": 429,
+    "error": {
+      "message": "ThrottlerException: Too Many Requests",
+      "status": 429,
+      "code": "too-many-requests",
+      "params": []
+    }
+  }
+}

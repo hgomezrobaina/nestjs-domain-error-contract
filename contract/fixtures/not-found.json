@@ -1,0 +1,13 @@
+{
+  "status": 404,
+  "body": {
+    "path": "/nowhere",
+    "status": 404,
+    "error": {
+      "message": "Cannot GET /nowhere",
+      "status": 404,
+      "code": "not-found",
+      "params": []
+    }
+  }
+}

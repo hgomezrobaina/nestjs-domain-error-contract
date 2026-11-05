@@ -1,0 +1,13 @@
+{
+  "status": 502,
+  "body": {
+    "path": "/shipments/s-light/label",
+    "status": 502,
+    "error": {
+      "message": "The carrier rejected the request because of its own rate limit",
+      "status": 502,
+      "code": "carrier-rate-limit",
+      "params": []
+    }
+  }
+}

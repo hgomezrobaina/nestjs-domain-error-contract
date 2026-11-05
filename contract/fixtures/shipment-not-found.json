@@ -1,0 +1,13 @@
+{
+  "status": 404,
+  "body": {
+    "path": "/shipments/dispatch",
+    "status": 404,
+    "error": {
+      "message": "The shipment does not exist",
+      "status": 404,
+      "code": "shipment-not-found",
+      "params": []
+    }
+  }
+}

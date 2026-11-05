@@ -1,0 +1,13 @@
+{
+  "status": 409,
+  "body": {
+    "path": "/shipments/dispatch",
+    "status": 409,
+    "error": {
+      "message": "The shipment was already dispatched",
+      "status": 409,
+      "code": "shipment-already-dispatched",
+      "params": []
+    }
+  }
+}

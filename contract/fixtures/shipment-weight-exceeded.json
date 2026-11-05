@@ -1,0 +1,22 @@
+{
+  "status": 409,
+  "body": {
+    "path": "/shipments/dispatch",
+    "status": 409,
+    "error": {
+      "message": "The shipment weight exceeds what the carrier accepts",
+      "status": 409,
+      "code": "shipment-weight-exceeded",
+      "params": [
+        {
+          "name": "maxWeight",
+          "value": "30"
+        },
+        {
+          "name": "actual",
+          "value": "32"
+        }
+      ]
+    }
+  }
+}

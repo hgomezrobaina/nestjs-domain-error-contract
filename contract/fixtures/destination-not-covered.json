@@ -1,0 +1,18 @@
+{
+  "status": 422,
+  "body": {
+    "path": "/shipments/dispatch",
+    "status": 422,
+    "error": {
+      "message": "The carrier does not deliver to the shipment destination",
+      "status": 422,
+      "code": "destination-not-covered",
+      "params": [
+        {
+          "name": "country",
+          "value": "IS"
+        }
+      ]
+    }
+  }
+}
