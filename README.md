@@ -2,7 +2,7 @@
 
 A domain exception that crosses the API boundary is a stable identifier with data, not a sentence. The server names what failed and attaches what is needed to explain it; the client, which knows the screen and the reader's language, writes the sentence.
 
-This repository is the runnable companion of the article _Excepciones de dominio entre NestJS y React: un identificador con datos, no una frase_. A NestJS server and a React client that agree on one error contract, and the tests that hold both sides to it.
+This repository is the runnable companion of the article _Domain exceptions between NestJS and React: an identifier with data, not a sentence_ ([English](https://dev.to/chacaponquin/domain-exceptions-between-nestjs-and-react-an-identifier-with-data-not-a-sentence-1cne) · [español](https://dev.to/chacaponquin/excepciones-de-dominio-entre-nestjs-y-react-un-identificador-con-datos-no-una-frase-1nlm)). A NestJS server and a React client that agree on one error contract, and the tests that hold both sides to it.
 
 ## The contract
 
